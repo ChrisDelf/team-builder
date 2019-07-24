@@ -33,18 +33,25 @@ function TeamMemberBuilder() {
             </div>
           </label>
         </div>
-        <div className="form-group">
-          <label>Role</label>
-          <input
-            type="role"
-            className="form-control"
-            name="role"
-            aria-describedby="emailHelp"
-            placeholder="Enter role"
-            value={member.role}
-            onChange={changeHandler}
-          />
-        </div>
+    <select
+          value = {(member.role)}
+          className="border rounded border-full border-gray-200"
+          onChange={changeHandler}
+        >
+          <option value="" selected="selected" hidden="hidden">
+            Select A role.
+          </option>
+          <option value={(member.role = 'UI')}>UI Developer</option>
+          <option value={(member.role = 'Front-End ')}>
+            Front-End Engineer
+          </option>
+          <option value={(member.role = 'Back-End')}>Back-End Engineer</option>
+          <option value={(member.role = 'UX')}>UX Designer</option>
+          <option value={(member.role = 'Data Scientist')}>
+            Data Scientist
+          </option>
+        </select>
+
         <div className="form-group">
           <label>Email</label>
           <input
