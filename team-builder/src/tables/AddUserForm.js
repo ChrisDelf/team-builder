@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 
-
-
 const AddUserForm = props => {
   const initialFormState = { id: null, name: '', email: '', role: '' };
   const [user, setUser] = useState(initialFormState);
 
   const handleInputChange = event => {
-    const { name, value } = event.target;
+    const updatedUser = { ...user, [event.target.name]: event.target.value };
 
-    setUser({ ...user, [name]: value });
+    setUser(updatedUser);
   };
 
   return (
@@ -30,26 +28,26 @@ const AddUserForm = props => {
       />
       <label>Email</label>
       <input
-        type="text"
+        type="email"
         name="email"
         value={user.email}
         onChange={handleInputChange}
-    />
-        <select
-
-          className="border rounded border-full border-gray-200"
-          onChange={handleInputChange}
-        >
-          <option value="" selected="selected" hidden="hidden">
-            Select A role.</option>
-          <option value={(user.role = 'UI')}>UI Developer</option>
-          <option value={(user.role = 'Front-End ')}>
-            Front-End Engineer
-          </option>
-          <option value={(user.role = 'Back-End')}>Back-End </option>
-          <option value={(user.role = 'UX')}>UX </option>
-          <option value={(user.role = 'Data Scientist')}> Data Scientist  </option>
-        </select>
+      />
+      <select
+        value={user.role}
+        className="dropdown"
+        onChange={handleInputChange}
+        name="role"
+      >
+        <option value="" selected="selected" hidden="hidden">
+          Select A role.
+        </option>
+        <option value="UI">UI Developer</option>
+        <option value="Front-End ">Front-End Engineer</option>
+        <option value="Back-End">Back-End </option>
+        <option value="UX">UX </option>
+        <option value="Data Scientist"> Data Scientist </option>
+      </select>
 
       <button>Add new user</button>
     </form>

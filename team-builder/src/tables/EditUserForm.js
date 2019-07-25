@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { debuglog } from 'util';
 
 const EditUserForm = props => {
   const [user, setUser] = useState(props.currentUser);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
-
     setUser({ ...user, [name]: value });
+
   };
 
   return (
@@ -27,23 +28,28 @@ const EditUserForm = props => {
       <label>Username</label>
       <input
         type="email"
-        email="email"
+        name="email"
         value={user.email}
         onChange={handleInputChange}
       />
+
       <select
-        className="border rounded border-full border-gray-200"
+        option
+        value={user.role}
+        name="role"
+        className=""
         onChange={handleInputChange}
       >
         <option value="" selected="selected" hidden="hidden">
           Select A role.
         </option>
-        <option value={(user.role = 'UI')}>UI Developer</option>
-        <option value={(user.role = 'Front-End ')}>Front-End Engineer</option>
-        <option value={(user.role = 'Back-End')}>Back-End </option>
-        <option value={(user.role = 'UX')}>UX </option>
-        <option value={(user.role = 'Data Scientist')}> Data Scientist </option>
+        <option value= 'UI'>UI Developer</option>
+        <option value= 'Front-End '>Front-End Engineer</option>
+        <option value= 'Back-End'>Back-End </option>
+        <option value= 'UX'>UX </option>
+        <option value= 'Data Scientist'> Data Scientist </option>
       </select>
+
       <button>Update user</button>
       <button
         onClick={() => props.setEditing(false)}
