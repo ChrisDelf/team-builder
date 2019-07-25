@@ -38,8 +38,9 @@ const AddUserForm = props => {
         className="dropdown"
         onChange={handleInputChange}
         name="role"
+
       >
-        <option value="" selected="selected" hidden="hidden">
+        <option value="" hidden="hidden">
           Select A role.
         </option>
         <option value="UI">UI Developer</option>

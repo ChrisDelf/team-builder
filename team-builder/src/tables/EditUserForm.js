@@ -7,7 +7,6 @@ const EditUserForm = props => {
   const handleInputChange = event => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
-
   };
 
   return (
@@ -39,15 +38,16 @@ const EditUserForm = props => {
         name="role"
         className=""
         onChange={handleInputChange}
+
       >
-        <option value="" selected="selected" hidden="hidden">
+        <option value="" hidden="hidden">
           Select A role.
         </option>
-        <option value= 'UI'>UI Developer</option>
-        <option value= 'Front-End '>Front-End Engineer</option>
-        <option value= 'Back-End'>Back-End </option>
-        <option value= 'UX'>UX </option>
-        <option value= 'Data Scientist'> Data Scientist </option>
+        <option value="UI">UI Developer</option>
+        <option value="Front-End ">Front-End Engineer</option>
+        <option value="Back-End">Back-End </option>
+        <option value="UX">UX </option>
+        <option value="Data Scientist"> Data Scientist </option>
       </select>
 
       <button>Update user</button>

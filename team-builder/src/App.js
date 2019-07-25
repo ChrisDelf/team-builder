@@ -11,7 +11,7 @@ const App = () => {
   ];
   // editing users
   const [editing, setEditing] = useState(false);
-  const initialFormState = { id: null, name: '', email: '', role: '' };
+  const initialFormState = { id: null, name: '', email: '', role: 'UI' };
   const [currentUser, setCurrentUser] = useState(initialFormState);
 
   const updateUser = (id, updatedUser) => {
@@ -19,12 +19,7 @@ const App = () => {
     console.log('updated', updatedUser);
     setUsers(users.map(user => (user.id === id ? updatedUser : user)));
   };
-  useEffect( () =>  {
 
-  console.log("I am a noob")
-
-
-  })
   const editRow = user => {
     setEditing(true);
 
